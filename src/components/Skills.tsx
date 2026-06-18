@@ -11,7 +11,7 @@ const SKILLS_DATA = [
     accent: 'orange',
   },
   {
-    category: 'Frontend Engineering',
+    category: 'Frontend',
     icon: Layers,
     skills: ['React.js', 'Tailwind CSS', 'HTML/CSS'],
     accent: 'orange',
@@ -25,7 +25,7 @@ const SKILLS_DATA = [
   {
     category: 'Cloud Infrastructure',
     icon: Cloud,
-    skills: ['AWS', 'Google Cloud', 'Oracle Cloud'],
+    skills: ['AWS', 'Google Cloud'],
     accent: 'orange',
   },
   {
@@ -73,7 +73,17 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden border-b border-white/[0.04]">
+    <section id="skills" className="py-28 md:py-36 relative overflow-hidden">
+      {/* About bottom line / transition to Skills */}
+      <div className="absolute top-0 left-0 w-full h-[1px] bg-white/[0.14] pointer-events-none z-0" />
+
+      {/* Skills Top Intersection Nodes */}
+      <div className="absolute top-0 left-[4%] w-[5px] h-[5px] -translate-x-1/2 -translate-y-1/2 bg-white/[0.22] border border-white/[0.1] pointer-events-none z-0" />
+      <div className="absolute top-0 left-[18%] xl:left-[calc(50%-640px)] w-[5px] h-[5px] -translate-x-1/2 -translate-y-1/2 bg-white/[0.22] border border-white/[0.1] pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[5px] h-[5px] bg-white/[0.22] border border-white/[0.1] pointer-events-none z-0" />
+      <div className="absolute top-0 right-[18%] xl:right-[calc(50%-640px)] w-[5px] h-[5px] translate-x-1/2 -translate-y-1/2 bg-white/[0.22] border border-white/[0.1] pointer-events-none z-0" />
+      <div className="absolute top-0 right-[4%] w-[5px] h-[5px] translate-x-1/2 -translate-y-1/2 bg-white/[0.22] border border-white/[0.1] pointer-events-none z-0" />
+
       {/* Soft overlay blob */}
       <div className="absolute top-1/2 left-[-10%] w-[300px] h-[300px] rounded-full bg-orange-600/[0.02] blur-[100px] pointer-events-none" />
 
@@ -81,8 +91,8 @@ export default function Skills() {
         {/* Section Title */}
         <div className="flex flex-col mb-16">
           <span className="text-xs font-mono tracking-widest text-orange-primary uppercase mb-2">02 / Toolkit</span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Technical Matrix
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F8FAFC] tracking-tight">
+            Skills
           </h2>
           <div className="w-12 h-[2px] bg-gradient-to-r from-orange-primary to-orange-secondary mt-4 rounded-full" />
         </div>
@@ -93,30 +103,41 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-6 gap-6"
         >
-          {SKILLS_DATA.map((group) => {
+          {SKILLS_DATA.map((group, idx) => {
             const IconComponent = group.icon;
+            const colSpan = idx < 3 
+              ? 'md:col-span-3 lg:col-span-2' 
+              : (idx === 4 ? 'md:col-span-6 lg:col-span-3' : 'md:col-span-3 lg:col-span-3');
             
+            // Positioning overrides for specific card badges as requested by user
+            let badgeContainerClass = "flex flex-wrap justify-center gap-2 mt-auto relative z-10";
+            if (group.category === 'Languages' || group.category === 'Frontend') {
+              badgeContainerClass += " -translate-y-2";
+            } else if (group.category === 'Cloud Infrastructure' || group.category === 'Developer Tools') {
+              badgeContainerClass += " translate-x-2.5";
+            }
+
             return (
               <motion.div
                 key={group.category}
                 variants={cardVariants}
-                className="glass-panel glass-panel-hover p-8 rounded-2xl flex flex-col h-full relative group overflow-hidden"
+                className={`relative overflow-hidden bg-[#080808]/90 backdrop-blur-sm border border-[rgba(255,107,0,0.2)] hover:border-[#FF6B00] rounded-[24px] p-[28px] flex flex-col justify-between h-full shadow-[0_4px_20px_rgba(255,107,0,0.03)] hover:shadow-[0_10px_30px_rgba(255,107,0,0.15)] transition-all duration-300 hover:-translate-y-1 group col-span-1 ${colSpan}`}
               >
-                {/* Accent line */}
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-orange-primary to-orange-secondary opacity-20 group-hover:opacity-100 transition-opacity duration-400" />
+                {/* Dot Grid Background Overlay */}
+                <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none z-0" />
 
                 {/* Category Header */}
-                <div className="flex items-center gap-3.5 mb-6">
-                  <div className="p-2.5 rounded-xl bg-orange-primary/10 text-orange-primary border border-orange-primary/20">
-                    <IconComponent className="w-5 h-5" />
+                <div className="flex items-center gap-3.5 mb-6 relative z-10">
+                  <div className="p-2.5 rounded-xl bg-[#0A0A0A] border border-[rgba(255,107,0,0.25)] text-white shadow-[0_0_12px_rgba(255,107,0,0.15)] group-hover:shadow-[0_0_16px_rgba(255,107,0,0.3)] transition-all duration-300">
+                    <IconComponent className="w-5 h-5 text-white" strokeWidth={2} />
                   </div>
-                  <h3 className="text-base font-bold text-white tracking-tight">{group.category}</h3>
+                  <h3 className="text-base font-bold text-[#F8FAFC] tracking-tight">{group.category}</h3>
                 </div>
 
                 {/* Badges Container */}
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className={badgeContainerClass}>
                   {group.skills.map((skill) => (
                     <motion.span
                       key={skill}
@@ -127,7 +148,7 @@ export default function Skills() {
                         backgroundColor: 'rgba(255, 107, 0, 0.04)',
                         color: '#ffffff',
                       }}
-                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide border border-white/[0.06] bg-white/[0.01] text-muted-zinc transition-all duration-200 cursor-default"
+                      className="px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wide border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-[#E2E8F0] transition-all duration-200 cursor-default"
                     >
                       {skill}
                     </motion.span>

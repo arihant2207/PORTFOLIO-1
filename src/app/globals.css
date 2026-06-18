@@ -71,7 +71,7 @@ body {
 
 /* Dot Grid Background Overlay */
 .dot-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(255, 107, 0, 0.14) 1.2px, transparent 1.2px);
   background-size: 24px 24px;
 }
 

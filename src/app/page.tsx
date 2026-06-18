@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 w-full max-w-7xl mx-auto">
+      <main className="flex-1 w-full">
         <Hero />
         <About />
         <Skills />

@@ -63,21 +63,7 @@ export default function Navbar() {
             : 'py-6 bg-transparent border-b border-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              window.history.pushState(null, '', '/');
-            }}
-            className="flex items-center gap-2 font-mono text-lg font-bold text-white tracking-wider hover:opacity-95 transition-opacity"
-          >
-            <Code2 className="w-5 h-5 text-orange-primary" />
-            <span>AJ<span className="text-gradient-orange font-sans font-extrabold font-mono">.dev</span></span>
-          </a>
-
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-end md:justify-center relative">
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
             {NAV_ITEMS.map((item) => {
@@ -88,7 +74,7 @@ export default function Navbar() {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`relative text-sm font-medium tracking-wide transition-colors duration-200 py-1.5 hover:text-white ${
-                    isActive ? 'text-white' : 'text-muted-zinc'
+                    isActive ? 'text-white' : 'text-[#94A3B8]'
                   }`}
                 >
                   {item.name}
@@ -105,10 +91,11 @@ export default function Navbar() {
           </nav>
 
           {/* Resume Button & Menu toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 md:absolute md:right-6">
             <a
-              href="#resume"
-              onClick={(e) => handleNavClick(e, '#resume')}
+              href="/resume/Arihant-Jain-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-4.5 py-2 text-xs font-semibold tracking-wider text-white border border-white/8 bg-white/[0.02] hover:bg-orange-primary/10 hover:border-orange-primary/45 transition-all duration-300 shadow-[0_0_15px_rgba(255,107,0,0.05)]"
             >
               Resume
@@ -117,7 +104,7 @@ export default function Navbar() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-muted-zinc hover:text-white transition-colors"
+              className="md:hidden p-2 text-[#94A3B8] hover:text-white transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -143,7 +130,7 @@ export default function Navbar() {
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
                   className={`text-2xl font-bold border-b border-white/[0.04] pb-3 ${
-                    activeSection === item.href ? 'text-gradient-orange font-black' : 'text-muted-zinc'
+                    activeSection === item.href ? 'text-gradient-orange font-black' : 'text-[#94A3B8]'
                   }`}
                 >
                   {item.name}
@@ -151,8 +138,9 @@ export default function Navbar() {
               ))}
             </nav>
             <a
-              href="#resume"
-              onClick={(e) => handleNavClick(e, '#resume')}
+              href="/resume/Arihant-Jain-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-center text-sm font-bold tracking-wider text-white border border-white/8 bg-orange-primary/5 hover:bg-orange-primary/10 transition-colors duration-300"
             >
               Resume
