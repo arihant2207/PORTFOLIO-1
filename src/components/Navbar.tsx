@@ -93,7 +93,7 @@ export default function Navbar() {
           {/* Resume Button & Menu toggle */}
           <div className="flex items-center gap-4 md:absolute md:right-6">
             <a
-              href="/resume/Arihant-Jain-Resume.pdf"
+              href="/resume/Arihant-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 px-4.5 py-2 text-xs font-semibold tracking-wider text-white border border-white/8 bg-white/[0.02] hover:bg-orange-primary/10 hover:border-orange-primary/45 transition-all duration-300 shadow-[0_0_15px_rgba(255,107,0,0.05)]"
@@ -138,7 +138,7 @@ export default function Navbar() {
               ))}
             </nav>
             <a
-              href="/resume/Arihant-Jain-Resume.pdf"
+              href="/resume/Arihant-Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 flex items-center justify-center gap-2 w-full py-4 text-center text-sm font-bold tracking-wider text-white border border-white/8 bg-orange-primary/5 hover:bg-orange-primary/10 transition-colors duration-300"

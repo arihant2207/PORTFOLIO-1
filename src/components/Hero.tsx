@@ -192,7 +192,7 @@ export default function Hero() {
 
           {/* Download Resume Button - Orange Accent Glass Design */}
           <a
-            href="/resume/Arihant-Jain-Resume.pdf"
+            href="/resume/Arihant-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 h-[50px] px-6 rounded-full text-xs font-semibold tracking-widest uppercase text-white border border-orange-primary/30 bg-white/[0.02] backdrop-blur-sm shadow-[0_0_15px_rgba(255,107,0,0.06)] hover:bg-white/[0.04] hover:border-orange-primary hover:shadow-[0_0_20px_rgba(255,107,0,0.2)] transition-all duration-300 cursor-pointer w-full sm:w-auto"

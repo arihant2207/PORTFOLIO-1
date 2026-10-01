@@ -70,7 +70,7 @@ export default function Contact() {
                 {/* Action */}
                 <div>
                   <a
-                    href="/resume/Arihant-Jain-Resume.pdf"
+                    href="/resume/Arihant-Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative flex items-center justify-center gap-2 w-full py-4 rounded-xl text-xs font-bold tracking-widest uppercase text-white bg-gradient-to-r from-orange-primary to-orange-secondary hover:opacity-95 transition-all duration-300 shadow-[0_0_15px_rgba(255,107,0,0.12)] cursor-pointer"
